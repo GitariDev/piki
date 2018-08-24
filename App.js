@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { View } from "react-native";
-import firebase from "firebase";
-import { Header, Button, Spinner } from "./src/components/common";
-import LoginForm from "./src/components/LoginForm";
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import firebase from 'firebase';
+import { Header, Button, Spinner } from './src/components/common';
+import LoginForm from './src/components/LoginForm';
 
 class App extends Component {
   state = { loggedIn: null };
 
   componentWillMount() {
     firebase.initializeApp({
-      apiKey: "AIzaSyC43t2UT4IxUZwmJRwgg6GbIZKNRJ_FEoQ",
-      authDomain: "piki-partner.firebaseapp.com",
-      databaseURL: "https://piki-partner.firebaseio.com",
-      projectId: "piki-partner",
-      storageBucket: "piki-partner.appspot.com",
-      messagingSenderId: "305290995933"
+      apiKey: 'AIzaSyC43t2UT4IxUZwmJRwgg6GbIZKNRJ_FEoQ',
+      authDomain: 'piki-partner.firebaseapp.com',
+      databaseURL: 'https://piki-partner.firebaseio.com',
+      projectId: 'piki-partner',
+      storageBucket: 'piki-partner.appspot.com',
+      messagingSenderId: '305290995933'
     });
 
     firebase.auth().onAuthStateChanged(user => {
@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <View>
-        <Header headerText="Authentication" />
+        <Header headerText="Auth Bruh" />
         {this.renderContent()}
       </View>
     );
