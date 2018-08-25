@@ -67,7 +67,7 @@ export default class ProfileScreen extends React.Component {
           centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
         />
         <ScrollView>
-          <ProfileImage user={this.state.name} />
+          <ProfileImage />
           {this.state.pLoad === true ? <Spinner color="white" /> : <View />}
           <ProfileInputs
             name={this.state.name}
@@ -81,7 +81,14 @@ export default class ProfileScreen extends React.Component {
             }}
             loading={this.state.loading}
           />
-          <Button title="log out" onPress={() => firebase.auth().signOut()} />
+          <Button
+            title="log out"
+            onPress={() => firebase.auth().signOut()}
+            buttonStyle={{
+              paddingBottom: 20,
+              backgroundColor: "#4286f4"
+            }}
+          />
         </ScrollView>
       </Container>
     );
