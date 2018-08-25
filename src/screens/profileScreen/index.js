@@ -81,7 +81,14 @@ export default class ProfileScreen extends React.Component {
             }}
             loading={this.state.loading}
           />
-          <Button title="log out" onPress={() => firebase.auth().signOut()} />
+          <Button
+            title="log out"
+            onPress={() => firebase.auth().signOut()}
+            buttonStyle={{
+              paddingBottom: 20,
+              backgroundColor: "#4286f4"
+            }}
+          />
         </ScrollView>
       </Container>
     );
