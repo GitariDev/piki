@@ -64,7 +64,7 @@ export default class ViewPosts extends React.Component {
             />
           }
         />
-        {this.state.loading === true ? <Spinner /> : <View />}
+        {this.state.loading === true ? <Spinner color="#fff" /> : <View />}
         <PostsList data={this.state.posts} />
       </Container>
     );

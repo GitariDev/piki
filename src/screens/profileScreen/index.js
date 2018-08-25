@@ -1,17 +1,17 @@
-import React from "react";
-import { LayoutAnimation, ScrollView, View } from "react-native";
-import { Button, Header } from "react-native-elements";
-import firebase from "firebase";
-import { Container, Spinner } from "native-base";
-import ProfileInputs from "./ProfileInputs";
-import ProfileImage from "./ProfileImage";
+import React from 'react';
+import { LayoutAnimation, ScrollView, View } from 'react-native';
+import { Button, Header } from 'react-native-elements';
+import firebase from 'firebase';
+import { Container, Spinner } from 'native-base';
+import ProfileInputs from './ProfileInputs';
+import ProfileImage from './ProfileImage';
 
 export default class ProfileScreen extends React.Component {
   state = {
-    photoUrl: "",
-    name: "",
-    email: "",
-    bike: "",
+    photoUrl: '',
+    name: '',
+    email: '',
+    bike: '',
     loading: false,
     pLoad: false
   };
@@ -21,8 +21,8 @@ export default class ProfileScreen extends React.Component {
     var user = firebase.auth().currentUser;
     await firebase
       .database()
-      .ref("users/" + user.uid)
-      .once("value")
+      .ref('users/' + user.uid)
+      .once('value')
       .then(snapshot => {
         var name = snapshot.val().name;
         var email = snapshot.val().email;
@@ -46,7 +46,7 @@ export default class ProfileScreen extends React.Component {
     var database = firebase.database();
     await firebase
       .database()
-      .ref("users/" + user.uid)
+      .ref('users/' + user.uid)
       .set({
         name: this.state.name,
         email: this.state.email,
@@ -62,9 +62,9 @@ export default class ProfileScreen extends React.Component {
 
   render() {
     return (
-      <Container style={{ backgroundColor: "#4286f4" }}>
+      <Container style={{ backgroundColor: '#4286f4' }}>
         <Header
-          centerComponent={{ text: "Profile", style: { color: "#fff" } }}
+          centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
         />
         <ScrollView>
           <ProfileImage user={this.state.name} />
