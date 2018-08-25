@@ -1,13 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import ViewPosts from './ViewPosts';
+import AddPost from './AddPost';
+import { createStackNavigator } from 'react-navigation';
 
-export default class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
-    );
-  }
-}
+const HomeScreen = createStackNavigator({
+  View: ViewPosts,
+  Add: AddPost
+});
+
+export default HomeScreen;
