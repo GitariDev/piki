@@ -11,7 +11,8 @@ export default class ProfileImage extends React.Component {
           xlarge
           rounded
           source={{
-            uri: "https://openclipart.org/detail/280521/motorcycle-icon"
+            uri:
+              "file:///Users/gitaritirima/Downloads/Motorbike%20Helmet-595b40b75ba036ed117d67e3.svg"
           }}
           onPress={this.props.changeProfilePhoto}
           activeOpacity={0.7}
