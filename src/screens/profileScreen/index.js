@@ -67,7 +67,7 @@ export default class ProfileScreen extends React.Component {
           centerComponent={{ text: "Profile", style: { color: "#fff" } }}
         />
         <ScrollView>
-          <ProfileImage user={this.state.name} />
+          <ProfileImage />
           {this.state.pLoad === true ? <Spinner color="white" /> : <View />}
           <ProfileInputs
             name={this.state.name}
