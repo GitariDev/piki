@@ -1,7 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Body, Input, Item, Label, Card, CardItem } from 'native-base';
-import { Button } from 'react-native-elements';
+import firebase from "firebase";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Body, Input, Item, Label, Card, CardItem } from "native-base";
+import { Button } from "react-native-elements";
 
 export default class ProfileInputs extends React.Component {
   render() {
@@ -19,58 +20,27 @@ export default class ProfileInputs extends React.Component {
                 </Label>
                 <Input
                   value={this.props.name}
-                  onChangeText={text => this.props.onChangeText(text, 'name')}
+                  onChangeText={text => this.props.onChangeText(text, "name")}
                 />
               </Item>
-              <Item style={styles.spacing} floatingLabel>
-                <Label>
-                  <Text>Company</Text>
-                </Label>
-                <Input
-                  value={this.props.company}
-                  onChangeText={text =>
-                    this.props.onChangeText(text, 'company')
-                  }
-                />
-              </Item>
-              <Item style={styles.spacing} floatingLabel>
-                <Label>
-                  <Text>Position</Text>
-                </Label>
-                <Input
-                  value={this.props.position}
-                  onChangeText={text =>
-                    this.props.onChangeText(text, 'position')
-                  }
-                />
-              </Item>
+
               <Item style={styles.spacing} floatingLabel>
                 <Label>
                   <Text>Email</Text>
                 </Label>
                 <Input
                   value={this.props.email}
-                  onChangeText={text => this.props.onChangeText(text, 'email')}
+                  onChangeText={text => this.props.onChangeText(text, "email")}
                 />
               </Item>
+
               <Item style={styles.spacing} floatingLabel>
                 <Label>
-                  <Text>Number</Text>
+                  <Text>Bike</Text>
                 </Label>
                 <Input
-                  value={this.props.number}
-                  onChangeText={text => this.props.onChangeText(text, 'number')}
-                />
-              </Item>
-              <Item style={styles.spacing} floatingLabel>
-                <Label>
-                  <Text>Address</Text>
-                </Label>
-                <Input
-                  value={this.props.address}
-                  onChangeText={text =>
-                    this.props.onChangeText(text, 'address')
-                  }
+                  value={this.props.bike}
+                  onChangeText={text => this.props.onChangeText(text, "bike")}
                 />
               </Item>
 
@@ -78,17 +48,17 @@ export default class ProfileInputs extends React.Component {
                 style={{
                   paddingTop: 10,
                   paddingBottom: 20,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center"
                 }}
               >
                 <Button
                   raised
                   title="Save Info"
-                  backgroundColor="#1FA238"
-                  onPress={this.props.saveInfo}
-                  loading={this.props.saveLoading}
+                  backgroundColor="#4286f4"
+                  onPress={this.props.onSavePress}
+                  loading={this.props.loading}
                 />
               </View>
             </View>
@@ -101,24 +71,24 @@ export default class ProfileInputs extends React.Component {
 
 const styles = StyleSheet.create({
   avatarContainer: {
-    backgroundColor: '#1FA238',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#1FA238",
+    alignItems: "center",
+    justifyContent: "center",
     paddingTop: 20,
     paddingBottom: 20
   },
   contentContainer: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
   },
-  header: { backgroundColor: '#318531' },
-  headerText: { color: '#fff' },
-  nameText: { color: '#fff', fontSize: 20 },
-  locationText: { color: '#fff', fontSize: 14 },
+  header: { backgroundColor: "#318531" },
+  headerText: { color: "#fff" },
+  nameText: { color: "#fff", fontSize: 20 },
+  locationText: { color: "#fff", fontSize: 14 },
   avatar: {
     shadowOffset: { width: 3, height: 3 },
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOpacity: 0.4
   },
   spacing: {
