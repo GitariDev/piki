@@ -1,8 +1,8 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 73416,
+  "expoServerNgrokUrl": "https://vz-qs5.iangwaigdev.piki.exp.direct",
+  "packagerNgrokUrl": "https://packager.vz-qs5.iangwaigdev.piki.exp.direct",
+  "ngrokPid": 73432
 }
