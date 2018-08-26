@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
@@ -7,6 +8,8 @@ import firebase from 'firebase';
 import { Container } from 'native-base';
 import { Header } from 'react-native-elements';
 import RefreshButton from '../../components/common/RefreshButton';
+import WeatherBar from '../../components/WeatherBar';
+
 
 export default class MapScreen extends React.Component {
   state = {
@@ -109,6 +112,7 @@ export default class MapScreen extends React.Component {
             <View />
           )}
         </MapView>
+        <WeatherBar />
       </Container>
     );
   }
