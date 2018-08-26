@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import firebase from 'firebase';
-import { Button, Card, CardSection, Input, Spinner } from './common';
-import { Header } from 'react-native-elements';
+import React, { Component } from "react";
+import { Text, View } from "react-native";
+import firebase from "firebase";
+import { Button, Card, CardSection, Input, Spinner } from "./common";
+import { Header } from "react-native-elements";
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '', loading: false };
+  state = { email: "", password: "", error: "", loading: false };
 
   onButtonPress() {
     const { email, password } = this.state;
 
-    this.setState({ error: '', loading: true });
+    this.setState({ error: "", loading: true });
 
     firebase
       .auth()
@@ -29,15 +29,15 @@ class LoginForm extends Component {
   }
 
   onLoginFail() {
-    this.setState({ error: 'Authentication Failed', loading: false });
+    this.setState({ error: "Authentication Failed", loading: false });
   }
 
   onLoginSuccess() {
     this.setState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       loading: false,
-      error: ''
+      error: ""
     });
   }
   saveInfo = async () => {
@@ -45,11 +45,11 @@ class LoginForm extends Component {
     var database = firebase.database();
     await firebase
       .database()
-      .ref('users/' + user.uid)
+      .ref("users/" + user.uid)
       .set({
-        name: '',
-        email: '',
-        bike: ''
+        name: "",
+        email: "",
+        bike: ""
       });
   };
   renderButton() {
@@ -63,7 +63,7 @@ class LoginForm extends Component {
   render() {
     return (
       <View>
-        <Header centerComponent={{ text: 'Login', style: { color: '#fff' } }} />
+        <Header centerComponent={{ text: "Login", style: { color: "#fff" } }} />
         <Card>
           <CardSection>
             <Input
@@ -96,8 +96,8 @@ class LoginForm extends Component {
 const styles = {
   errorTextStyle: {
     fontSize: 20,
-    alignSelf: 'center',
-    color: 'red'
+    alignSelf: "center",
+    color: "red"
   }
 };
 
