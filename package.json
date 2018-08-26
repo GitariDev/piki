@@ -26,11 +26,7 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
-<<<<<<< HEAD
-    "react-native-weather": "^0.2.11",
-=======
     "react-native-maps": "^0.21.0",
->>>>>>> c706e1161a9c7d63fbf079af0349c8a122f4387c
     "react-navigation": "^2.12.1"
   }
 }

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-import { Text, View } from "react-native";
-import { createBottomTabNavigator } from "react-navigation";
-import { WeatherBar } from "../../components/WeatherBar";
-=======
+
 import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
@@ -13,7 +8,8 @@ import firebase from 'firebase';
 import { Container } from 'native-base';
 import { Header } from 'react-native-elements';
 import RefreshButton from '../../components/common/RefreshButton';
->>>>>>> c706e1161a9c7d63fbf079af0349c8a122f4387c
+import WeatherBar from '../../components/WeatherBar';
+
 
 export default class MapScreen extends React.Component {
   state = {
@@ -85,11 +81,6 @@ export default class MapScreen extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>The map will be here somehow.... somehow</Text>
-      </View>
-=======
       <Container>
         <Header
           leftComponent={
@@ -121,8 +112,8 @@ export default class MapScreen extends React.Component {
             <View />
           )}
         </MapView>
+        <WeatherBar />
       </Container>
->>>>>>> c706e1161a9c7d63fbf079af0349c8a122f4387c
     );
   }
 }
