@@ -1,8 +1,2 @@
-{
-  "expoServerPort": 19000,
   "packagerPort": 19002,
-  "packagerPid": 29953,
-  "expoServerNgrokUrl": "https://sf-xv2.og-infinig.piki.exp.direct",
-  "packagerNgrokUrl": "https://packager.sf-xv2.og-infinig.piki.exp.direct",
-  "ngrokPid": 29973
-}
+{}

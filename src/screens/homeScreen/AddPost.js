@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, LayoutAnimation } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
+import { Permissions, Location } from 'expo';
 import {
   Container,
   Left,
@@ -18,6 +19,7 @@ import {
 import { Header, Button } from 'react-native-elements';
 import BackButton from '../../components/common/BackButton';
 import firebase from 'firebase';
+import axios from 'axios';
 export default class AddPost extends React.Component {
   static navigationOptions = {
     header: null
@@ -29,6 +31,48 @@ export default class AddPost extends React.Component {
     description: '',
     loading: false,
     message: ''
+  };
+  componentDidMount = async () => {
+    const { status } = await Permissions.getAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      await alert(
+        'Hey! You might want to enable Location so that you can post'
+      );
+      let { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status !== 'granted') {
+        this.setState({
+          errorMessage: 'Permission to access location was denied'
+        });
+      } else {
+        alert('thank you, now refresh the map!');
+      }
+    } else {
+      this._getLocation();
+    }
+  };
+  _getLocation = async () => {
+    let location = await Location.getCurrentPositionAsync({});
+    var coords = location.coords;
+    var lat = coords.latitude;
+    var long = coords.longitude;
+    await this.setState({
+      coords: {
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        latitudeDelta: 0.5,
+        longitudeDelta: 0.5
+      }
+    });
+
+    console.log(this.state);
+    const l = await axios.get(
+      `http://maps.googleapis.com/maps/api/geocode/json?latlng=${
+        coords.latitude
+      },${coords.longitude}`
+    );
+    let place = l.data.results[0].formatted_address;
+
+    this.setState({ location: place });
   };
   componentWillUpdate = () => {
     LayoutAnimation.spring();
@@ -59,7 +103,9 @@ export default class AddPost extends React.Component {
         poster: user.uid,
         email: user.email,
         date: date,
-        id: postId
+        id: postId,
+        latitude: this.state.coords.latitude,
+        longitude: this.state.coords.longitude
       });
     this.setState({ loading: false, message: 'Post success' });
   };
@@ -87,7 +133,7 @@ export default class AddPost extends React.Component {
                 }}
               />
             </Item>
-            <Item floatingLabel last>
+            {/* <Item>
               <Label>Location</Label>
               <Input
                 value={this.state.location}
@@ -95,7 +141,8 @@ export default class AddPost extends React.Component {
                   this._changeText(text, 'location');
                 }}
               />
-            </Item>
+            
+            </Item> */}
             <Item floatingLabel last>
               <Label>Description</Label>
               <Input
@@ -106,6 +153,8 @@ export default class AddPost extends React.Component {
               />
             </Item>
           </Form>
+          <Text>Your Location: {this.state.location} </Text>
+
           <Text>{this.state.message}</Text>
           <View style={{ padding: 10 }}>
             <Button
