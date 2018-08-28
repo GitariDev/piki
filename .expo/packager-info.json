@@ -1,18 +1,11 @@
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0b24327b4374fa6af64aeb7f488484bcc7d7d3da
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
-<<<<<<< HEAD
   "ngrokPid": null,
 
-=======
-=======
   "expoServerPort": 19005,
   "expoServerNgrokUrl": "https://sf-xv2.og-infinig.piki.exp.direct",
   "packagerNgrokUrl": "https://packager.sf-xv2.og-infinig.piki.exp.direct",
@@ -22,9 +15,4 @@
   "packagerPid": 37473,
 
   "packagerPid": 32564
-<<<<<<< HEAD
 }
-=======
->>>>>>> 84cd6642e24706ad4bc0a4a8a12e7053ea9195aa
-}
->>>>>>> 0b24327b4374fa6af64aeb7f488484bcc7d7d3da
