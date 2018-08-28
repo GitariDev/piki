@@ -12,7 +12,8 @@ export default class WeatherBar extends React.Component {
     city: "",
     condition: "",
     intCondition: "",
-    coulds: ""
+    coulds: "",
+    windSpeed: ""
   };
 
   componentWillMount() {
@@ -43,7 +44,8 @@ export default class WeatherBar extends React.Component {
       temp: data.main.temp,
       condition: data.weather[0].main,
       intCondition: data.weather[0].description,
-      clouds: data.clouds.all
+      clouds: data.clouds.all,
+      windSpeed: data.wind.speed
     });
   };
 
@@ -52,9 +54,10 @@ export default class WeatherBar extends React.Component {
       <View>
         <Text>City: {this.state.city}</Text>
         <Text>Current Temp: {this.state.temp - 273.15} C</Text>
-        <Text>Description: {this.state.condition}</Text>
-        <Text>{this.state.intCondition}</Text>
+        <Text>Current Weather: {this.state.condition}</Text>
+        <Text>Description: {this.state.intCondition}</Text>
         <Text>Clouds are at: {this.state.clouds} %</Text>
+        <Text>Wind Speed: {this.state.windSpeed * 3.6} km/h</Text>
       </View>
     );
   }

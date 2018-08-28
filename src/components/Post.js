@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Body } from 'native-base';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { Container, Header, Content, Card, CardItem, Body } from "native-base";
 export default class Post extends Component {
   render() {
     return (
@@ -22,7 +22,7 @@ export default class Post extends Component {
           <CardItem footer>
             <Text>Posted by: </Text>
             <Text style={styles.bold}>{this.props.email} </Text>
-            <Text style={styles.location}>{this.props.date}</Text>
+            <Text style={styles.bold}>{this.props.date}</Text>
           </CardItem>
         </Card>
       </Content>
@@ -33,13 +33,13 @@ export default class Post extends Component {
 const styles = StyleSheet.create({
   title: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   },
   location: {
     fontSize: 13,
-    fontStyle: 'italic'
+    fontStyle: "italic"
   },
   bold: {
-    fontWeight: 'bold'
+    fontWeight: "bold"
   }
 });

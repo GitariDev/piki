@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, View, LayoutAnimation } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
-import { Permissions, Location } from 'expo';
+import React from "react";
+import { Text, View, LayoutAnimation } from "react-native";
+import { createBottomTabNavigator } from "react-navigation";
+import { Permissions, Location } from "expo";
 import {
   Container,
   Left,
@@ -15,36 +15,37 @@ import {
   Form,
   Item,
   Label
-} from 'native-base';
-import { Header, Button } from 'react-native-elements';
-import BackButton from '../../components/common/BackButton';
-import firebase from 'firebase';
-import axios from 'axios';
+} from "native-base";
+import { Header, Button } from "react-native-elements";
+import BackButton from "../../components/common/BackButton";
+import firebase from "firebase";
+import axios from "axios";
 export default class AddPost extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   state = {
-    title: '',
-    location: '',
-    description: '',
+    title: "",
+    location: "",
+    description: "",
     loading: false,
-    message: ''
+    message: "",
+    date: ""
   };
   componentDidMount = async () => {
     const { status } = await Permissions.getAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
+    if (status !== "granted") {
       await alert(
-        'Hey! You might want to enable Location so that you can post'
+        "Hey! You might want to enable Location so that you can post"
       );
       let { status } = await Permissions.askAsync(Permissions.LOCATION);
-      if (status !== 'granted') {
+      if (status !== "granted") {
         this.setState({
-          errorMessage: 'Permission to access location was denied'
+          errorMessage: "Permission to access location was denied"
         });
       } else {
-        alert('thank you, now refresh the map!');
+        alert("thank you, now refresh the map!");
       }
     } else {
       this._getLocation();
@@ -78,7 +79,7 @@ export default class AddPost extends React.Component {
     LayoutAnimation.spring();
   };
   _switchScreen = () => {
-    this.props.navigation.navigate('View');
+    this.props.navigation.navigate("View");
   };
 
   _changeText = (text, label) => {
@@ -95,7 +96,7 @@ export default class AddPost extends React.Component {
       .substr(2, 9);
     await firebase
       .database()
-      .ref('posts/' + postId)
+      .ref("posts/" + postId)
       .set({
         title: this.state.title,
         location: this.state.location,
@@ -107,13 +108,13 @@ export default class AddPost extends React.Component {
         latitude: this.state.coords.latitude,
         longitude: this.state.coords.longitude
       });
-    this.setState({ loading: false, message: 'Post success' });
+    this.setState({ loading: false, message: "Post success" });
   };
   render() {
     return (
-      <Container style={{ backgroundColor: '#4286f4' }}>
+      <Container style={{ backgroundColor: "#4286f4" }}>
         <Header
-          centerComponent={{ text: 'Add Post', style: { color: '#fff' } }}
+          centerComponent={{ text: "Add Post", style: { color: "#fff" } }}
           leftComponent={
             <BackButton
               onPress={() => {
@@ -129,7 +130,7 @@ export default class AddPost extends React.Component {
               <Input
                 value={this.state.title}
                 onChangeText={text => {
-                  this._changeText(text, 'title');
+                  this._changeText(text, "title");
                 }}
               />
             </Item>
@@ -148,7 +149,7 @@ export default class AddPost extends React.Component {
               <Input
                 value={this.state.description}
                 onChangeText={text => {
-                  this._changeText(text, 'description');
+                  this._changeText(text, "description");
                 }}
               />
             </Item>
